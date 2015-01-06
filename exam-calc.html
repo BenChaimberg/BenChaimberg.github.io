@@ -37,13 +37,16 @@
 									case 4:
 										inputs[4].value = ((inputs[3].value * 100) - (((100 - inputs[2].value) / 2) * inputs[0].value) - (((100 - inputs[2].value) / 2) * inputs[1].value)) / inputs[2].value;
 										
-if (inputs[4].value > 100) {
-inputs[4].style.backgroundColor="red";
-}
+
 break;
 									default:
 										break;
 								}
+if (inputs[i].value > 100) {
+inputs[i].style.backgroundColor="red";
+} else {
+inputs[i].style.backgroundColor="initial";
+}
 							}
 						}
 					} else {
