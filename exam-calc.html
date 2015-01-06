@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<script type='text/javascript' src="{{ url_for('static', filename='jquery-1.11.0.min.js') }}"></script>
+		<script>
+			$(document).ready(function(){
+				$("form").keyup(function(){
+					var inputs = $("form").children();
+					var numFill = 0;
+					for (var i=0; i<inputs.length; i++) {
+						if (inputs[i].value && inputs[i].disabled == false) {
+							numFill += 1;
+						}
+						if (inputs[i].disabled) {
+							inputs[i].value = "";
+						}
+					}
+					if (numFill == 4) {
+						for (var i=0; i<inputs.length; i++) {
+							if (inputs[i].value) { }
+							else {
+								inputs[i].disabled = true;
+								switch (i) {
+									case 0:
+										inputs[0].value = (inputs[3].value - (inputs[4].value * inputs[2].value / 100) - (((100 - inputs[2].value) / 2) * inputs[1].value / 100)) / ((100 - inputs[2].value) / 2) * 100;
+										break;
+									case 1:
+										inputs[1].value = (inputs[3].value - (inputs[4].value * inputs[2].value / 100) - (((100 - inputs[2].value) / 2) * inputs[0].value / 100)) / ((100 - inputs[2].value) / 2) * 100;
+										break;
+									case 2:
+										inputs[2].disabled = false;
+										break;
+									case 3:
+										inputs[3].value = (((100 - inputs[2].value) / 2) * inputs[0].value / 100) + (((100 - inputs[2].value) / 2) * inputs[1].value / 100) + (inputs[4].value * inputs[2].value / 100);
+										break;
+									case 4:
+										inputs[4].value = ((inputs[3].value * 100) - (((100 - inputs[2].value) / 2) * inputs[0].value) - (((100 - inputs[2].value) / 2) * inputs[1].value)) / inputs[2].value;
+										break;
+									default:
+										break;
+								}
+							}
+						}
+					} else {
+						for (var i=0; i<inputs.length; i++) {
+							if (inputs[i].disabled) {
+								inputs[i].value = "";
+								inputs[i].disabled = false;
+							}
+						}
+					}
+				});
+			});
+		</script>
+		<style>
+			form {
+				text-align: center;
+			}
+			input {
+				clear: right;
+				margin: 0 auto 0;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<input id="" type="text" placeholder="Q1 Grade (%)"></input>
+			<input id="" type="text" placeholder="Q2 Grade (%)"></input>
+			<input id="" type="text" placeholder="Exam Weight (%)"></input>
+			<input id="" type="text" placeholder="Final Grade (%)"></input>
+			<input id="" type="text" placeholder="Exam Grade (%)"></input>
+		</form>
+	</body>
+</html>
