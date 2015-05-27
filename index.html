@@ -1,14 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
-   ga('create', 'UA-58277680-1', 'auto');
-   ga('send', 'pageview');
-  </script>
- </head>
- <body>
-  <a href="exam-calc.html">Exam Calculator</a>
- </body>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset="UTF-8">
+		<title>Ben Chaimberg's I/O</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','http://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-58277680-1', 'auto');ga('send', 'pageview');</script>
+		<style>
+  	body { position: relative; }
+  		table {
+    		margin: auto;
+    		margin-top: 25px;
+  		}
+  		.boxed {
+    		background-color: #337AB7;
+    		color: white;
+    		width: 100px;
+    		height: 100px;
+    		text-align: center;
+    		font-size: 72px;
+    		border-radius: 10px;
+    		-webkit-touch-callout: none;
+    		-webkit-user-select: none;
+				-khtml-user-select: none;
+				  -moz-user-select: none;
+				   -ms-user-select: none;
+				       user-select: none;
+				cursor: default;
+			}
+			.fixed {
+				position: fixed;
+			}
+			.sidebar {
+    		padding-left: 20px;
+    		margin-top: 20px;
+    		margin-bottom: 20px;
+  		}
+  		.sidebar .nav>li>a {
+    		color: #999;
+    		border-left: 2px solid transparent;
+    		padding: 4px 20px;
+    		font-size: 13px;
+    		font-weight: 400;
+  		}
+  		.sidebar .nav .nav>li>a {
+    		padding-top: 1px;
+		  	padding-bottom: 1px;
+	    	padding-left: 30px;
+	    	font-size: 12px;
+	  	}
+	  	.sidebar .nav>.active>a,
+	  	.sidebar .nav>li>a:hover,
+	  	.sidebar .nav>li>a:focus {
+	    	color: #563d7c;
+	    	text-decoration: none;
+	    	background-color: transparent;
+	    	border-left-color: #563d7c;
+	  	}
+
+	  	.sidebar .nav>.active>a,
+	  	.sidebar .nav>.active:hover>a,
+	  	.sidebar .nav>.active:focus>a {
+	    	font-weight: 700;
+	  	}
+
+	  	.sidebar .nav .nav>.active>a,
+	  	.sidebar .nav .nav>.active:hover>a,
+	  	.sidebar .nav .nav>.active:focus>a {
+	    	font-weight: 500;
+	  	}
+
+	  	.sidebar .nav ul.nav {
+	    	display: none;
+	  	}
+
+	  	.sidebar .nav>.active>ul.nav {
+	  		display: block;
+	  	}
+		</style>
+	</head>
+	<body data-spy="scroll" data-target="#sidebar">
+		<div class="container-fluid">
+			<table>
+				<tr>
+					<td class="boxed">B</td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="lead text-center"><em>Ben Chaimberg: programmer, student, innovator</em></p>
+				</div>
+				<nav class="col-xs-3 sidebar" id="sidebar">
+					<ul class="nav nav-stacked fixed">
+						<li>
+							<a href="#projects">Projects</a>
+							<ul class="nav nav-stacked">
+								<li><a href="#exam-calculator">Exam Calculator</a></li>
+								<li><a href="#swing">Swing Paints, Ltd.</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#about">About</a>
+							<ul class="nav nav-stacked">
+								<li><a href="#resume">Résumé</a></li>
+								<li><a href="#contact">Contact</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+				<div class="col-xs-8 col-xs-offset-2">
+					<section id="projects">
+						<h1 class="page-header">Projects</h1>
+						<p class="lead">In chronological order by start date, the projects that follow are of the few ideas that have not been abandoned within days of conception.</p>
+						<div id="exam-calculator">
+							<h2>Exam Calculator</h2>
+							<img src="img/examcalculator.png" class="center-block img-responsive img-thumbnail">
+							<p class="lead">In an environment as competitive as Hanover High School, grade obsession becomes a constant presence nearing exam time. So why not obsess accurately?</p>
+							<p>A clean and simple application, inputs of quarter grades, exam weight, and desired semester grade produce an output of the minimum score on the final required to acheive the aforemotioned desired semester grade. With alerts when the goal might be stretching the limits of the student, or even impossible, this application sees its greatest use in January and June. Written in simple Javascript with JQuery and Bootstrap plugins, the interface is sleek and compatible with any device.</p>
+						</div>
+						<div id="swing">
+							<h2>Swing Paints, Ltd.</h2>
+							<a href="http://www.swingpaints.herokuapp.com">Swing Paints</a>
+						</div>
+					</section>
+					<section id="about">
+						<h1 class="page-header">About</h1>
+						<p class="lead">Everything goes here</p>
+						<div id="resume">
+							<h2>Résumé</h2>
+							<p>Download the résumé <a target="_BLANK" href="misc/resume.pdf">here</a> as a PDF.</a></p>
+						</div>
+						<div id="contact">
+							<h2>Contact</h2>
+							<address>
+								<strong>Ben Chaimberg</strong><br>
+								P.O. Box 18<br>
+								Etna, NH 03750<br>
+								<abbr title="Home">H:</abbr> (603) 643-5396
+								<abbr title="Cell">C:</abbr> (603) 667-8702<br>
+								email: <a href="mailto:benchaimberg@gmail.com">benchaimberg@gmail.com</a><br>
+								github: <a href="//github.com/Youppi3">Youppi3</a><br>
+							</address>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+		<!-- <nav class="navbar navbar-default navbar-fixed-bottom">
+  		<div class="container">
+				<p>Last updated: May 27, 2015</p>
+  		</div>
+		</nav> -->
+	</body>
 </html
