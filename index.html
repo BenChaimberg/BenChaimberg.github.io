@@ -83,6 +83,11 @@
 	  	.sidebar .nav>.active>ul.nav {
 	  		display: block;
 	  	}
+			@media (max-width: 991px) {
+				.sidebar {
+					display: none;
+				}
+			}
 		</style>
 	</head>
 	<body data-spy="scroll" data-target="#sidebar">
@@ -110,7 +115,7 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="col-xs-8 col-xs-offset-2">
+				<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 					<section id="projects">
 						<h1 class="page-header">Projects</h1>
 						<p class="lead">In chronological order by start date, the projects that follow are of the few ideas that have not been abandoned within days of conception.</p>
@@ -131,7 +136,7 @@
 					</section>
 					<section id="about">
 						<h1 class="page-header">About</h1>
-						<p class="lead">Everything goes here</p>
+						<p class="lead">An enthusiastic high schooler with a penchance for tinkering with everything within his grasp. His eye for patterns and desire to learn drives him to explore and comprehend the world to its farthest boundaries.</p>
 						<div id="resume">
 							<h2>Résumé</h2>
 							<p>Download the résumé <a target="_BLANK" href="misc/resume.pdf">here</a> as a PDF.</a></p>
@@ -154,8 +159,8 @@
 		</div>
 		<nav class="navbar navbar-default" id="footer">
 			<div class="container">
-				<p class="navbar-text navbar-right">Last updated on May 27, 2015</p>
 				<p class="navbar-text navbar-left">Written and maintained by Ben Chaimberg with JQuery and Bootstrap</p>
+				<p class="navbar-text navbar-right">Last updated on May 27, 2015</p>
 			</div>
 		</nav>
 	</body>
