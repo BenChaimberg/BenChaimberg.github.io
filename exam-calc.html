@@ -1,18 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>HHS Exam Calculator</title>
-		<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-58277680-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+		<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<script>
+  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  	ga('create', 'UA-58277680-1', 'auto');
+  	ga('send', 'pageview');
+		</script>
 		<script>
 			$(document).ready(function(){
 				$("form").keyup(function(){
@@ -28,8 +28,7 @@
 					}
 					if (numFill == 4) {
 						for (var i=0; i<inputs.length; i++) {
-							if (inputs[i].value) { }
-							else {
+							if (!inputs[i].value) {
 								inputs[i].disabled = true;
 								switch (i) {
 									case 0:
@@ -45,18 +44,22 @@
 										inputs[3].value = (((100 - inputs[2].value) / 2) * inputs[0].value / 100) + (((100 - inputs[2].value) / 2) * inputs[1].value / 100) + (inputs[4].value * inputs[2].value / 100);
 										break;
 									case 4:
-										inputs[4].value = ((inputs[3].value * 100) - (((100 - inputs[2].value) / 2) * inputs[0].value) - (((100 - inputs[2].value) / 2) * inputs[1].value)) / inputs[2].value;
-										
-
-break;
+										var tempvalue = ((inputs[3].value * 100) - (((100 - inputs[2].value) / 2) * inputs[0].value) - (((100 - inputs[2].value) / 2) * inputs[1].value)) / inputs[2].value;
+										inputs[4].value = tempvalue > 0 ? tempvalue : 0
+										break;
 									default:
 										break;
 								}
-if (inputs[i].value > 100) {
-inputs[i].style.backgroundColor="red";
-} else {
-inputs[i].style.backgroundColor="initial";
-}
+								if (inputs[i].value > 100) {
+									$(inputs[i]).parent().addClass("has-error");
+									$(inputs[i]).parent().removeClass("has-warning");
+								} else if (i == 4 && inputs[i].value > Math.max(inputs[0].value,inputs[1].value)) {
+									$(inputs[i]).parent().addClass("has-warning");
+									$(inputs[i]).parent().removeClass("has-error");
+								} else {
+									$(inputs[i]).parent().removeClass("has-error");
+									$(inputs[i]).parent().removeClass("has-warning");
+								}
 							}
 						}
 					} else {
@@ -64,6 +67,8 @@ inputs[i].style.backgroundColor="initial";
 							if (inputs[i].disabled) {
 								inputs[i].value = "";
 								inputs[i].disabled = false;
+								$(inputs[i]).parent().removeClass("has-error");
+								$(inputs[i]).parent().removeClass("has-warning");
 							}
 						}
 					}
@@ -85,32 +90,37 @@ inputs[i].style.backgroundColor="initial";
 		</style>
 	</head>
 	<body>
-		<h1>HHS Exam Calculator</h1>
-		<p>Enter your first and second quarter grades, the weight of your final, and your desired final grade.</p>
-		<p>The number displayed is the minimum score required on the final to acheive your desired final grade.</p>
-		<form>
-			<div class="form-group">
-				<label for="q1-grade">Q1 Grade (%)</label>
-				<input class="form-control" id="q1-grade" type="number" placeholder="Q1 Grade (%)"></input>
-			</div>
-			<div class="form-group">
-				<label for="q2-grade">Q2 Grade (%)</label>
-				<input class="form-control" id="q2-grade" type="number" placeholder="Q2 Grade (%)"></input>
-			</div>
-			<div class="form-group">
-				<label for="exam-weight">Exam Weight (%)</label>
-				<input class="form-control" id="exam-weight" type="number" placeholder="Exam Weight (%)"></input>
-			</div>
-			<div class="form-group">
-				<label for="final-grade">Final Semester Grade (%)</label>
-				<input class="form-control" id="final-grade" type="number" placeholder="Final Semester Grade (%)"></input>
-			</div>
-			<div class="form-group">
-				<label for="exam-grade">Exam Grade (%)</label>
-				<input class="form-control" id="exam-grade" type="number" placeholder="Exam Grade (%)"></input>
-			</div>
-		</form>
-<p>Created by <a href="//github.com/Youppi3">Ben Chaimberg</a> for Hanover High School</p>
-<p>Last updated January 6, 2015</p>
+		<div class="container-fluid">
+			<img src="marauder.png"/>
+			<h1>HHS Exam Calculator</h1>
+			<p class="lead">Enter your first and second quarter grades, the weight of your final (found on your <a href="//ps.dresden.us">portal</a>), and your desired final grade.</p>
+			<p class="lead">The number displayed is the minimum score required on the final to acheive your desired final grade.</p>
+			<p>A red input box designates an "impossible" score, ie. greater than 100. Yes, extra credit may exist and to those lucky few who can manage above a perfect score, I salute you, jealously.</p>
+			<p>A yellow input box designates an "unlikely" score, ie. greater than your quarter averages.</p>
+			<form>
+				<div class="form-group">
+					<label class="control-label" for="q1-grade">Quarter 1 Grade (%)</label>
+					<input class="form-control" id="q1-grade" type="number"></input>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="q2-grade">Quarter 2 Grade (%)</label>
+					<input class="form-control" id="q2-grade" type="number"></input>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="exam-weight">Exam Weight (%)</label>
+					<input class="form-control" id="exam-weight" type="number"></input>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="final-grade">Final Semester Grade (%)</label>
+					<input class="form-control" id="final-grade" type="number"></input>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="exam-grade">Exam Grade (%)</label>
+					<input class="form-control" id="exam-grade" type="number"></input>
+				</div>
+			</form>
+			<p>Created by <a href="//github.com/Youppi3">Ben Chaimberg</a> for Hanover High School</p>
+			<p>Last updated: May 26, 2015</p>
+		</div>
 	</body>
 </html>
