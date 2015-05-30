@@ -4,9 +4,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta charset="UTF-8">
 		<title>Ben Chaimberg's I/O</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/bootstrap.min.js"></script>
 		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','http://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-58277680-1', 'auto');ga('send', 'pageview');</script>
 		<link rel="stylesheet" href="css/index.css">
 	</head>
@@ -17,8 +17,8 @@
 					<div class="center-block boxed">B</div>
 					<p class="lead text-center"><em>Ben Chaimberg: programmer, student, innovator</em></p>
 				</div>
-				<nav class="col-xs-3 sidebar" id="sidebar">
-					<ul class="nav nav-stacked fixed">
+				<nav class="col-xs-3 sidebar fixed" id="sidebar">
+					<ul class="nav nav-stacked">
 						<li>
 							<a href="#projects">Projects</a>
 							<ul class="nav nav-stacked">
@@ -30,10 +30,13 @@
 							<a href="#about">About</a>
 							<ul class="nav nav-stacked">
 								<li><a href="#resume">Résumé</a></li>
+								<li><a href="#education">Education</a></li>
+								<li><a href="#work-experience">Work Experience</a></li>
 								<li><a href="#contact">Contact</a></li>
 							</ul>
 						</li>
 					</ul>
+					<a class="back-to-top" href="#top">Back to top</a>
 				</nav>
 				<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 					<section id="projects">
@@ -58,8 +61,69 @@
 						<h1 class="page-header">About</h1>
 						<p class="lead">An enthusiastic high schooler with a penchance for tinkering with everything within his grasp. His eye for patterns and desire to learn drives him to explore and comprehend the world to its farthest boundaries.</p>
 						<div id="resume">
-							<h2>Résumé</h2>
-							<p>Download the résumé <a target="_BLANK" href="misc/resume.pdf">here</a> as a PDF.</a></p>
+							<h2>Resumé</h2>
+							<p>Download the resumé <a target="_BLANK" href="misc/resume.pdf">here</a> as a PDF.</a></p>
+						</div>
+						<div id="education">
+							<h2>Education</h2>
+							<div class="row dated-content">
+								<div class="col-xs-2">
+									<p class="lead date text-right">June 2015 &mdash;<br> August 2011</p>
+								</div>
+								<div class="col-xs-10">
+									<h3>Hanover High School</h3>
+									<p>Three-sport varsity athlete and captain of the varsity track and field team. Maintained high GPA while pursuing computer science and chorus as electives. Led a co-ed a cappella group and held the position of Secretary for school governance body. Anticipated graduation date: June 12, 2015.</p>
+								</div>
+							</div>
+							<div class="row dated-content">
+								<div class="col-xs-2">
+									<p class="lead date text-right">August 2014 &mdash;<br> November 2014</p>
+								</div>
+								<div class="col-xs-10">
+									<h3>Dartmouth College</h3>
+									<p>Completed Discrete Mathematics in Computer Science (COSC30) in Fall 2014 term through Dartmouth’s community student program.</p>
+								</div>
+							</div>
+						</div>
+						<div id="work-experience">
+							<h2>Work Experience</h2>
+							<div class="row dated-content">
+								<div class="col-xs-2">
+									<p class="lead date text-right"><em>Current</em> &mdash;<br> August 2011</p>
+								</div>
+								<div class="col-xs-10">
+									<h3>Web Designer <small>Swing Paints, Ltd.</small></h3>
+									<p>Designed, built, and deployed updates to web site, including mobile optimization. Worked with president and graphic designer to increase brand power and customer usability.</p>
+								</div>
+							</div>
+							<div class="row dated-content">
+								<div class="col-xs-2">
+									<p class="lead date text-right"><em>Current</em> &mdash;<br> September 2014</p>
+								</div>
+								<div class="col-xs-10">
+									<h3>Referee <small>USA Hockey</small></h3>
+									<p>Supervised and officiated youth hockey games of boys and girls aged 7-14.</p>
+								</div>
+							</div>
+						</div>
+						<div id="honors-awards-memberships">
+							<h2>Honors, Awards, and Memberships</h2>
+							<div class="row dated-content">
+								<div class="col-xs-2">
+									<p class="lead date text-right">February 2015</p>
+								</div>
+								<div class="col-xs-10">
+									<p><strong>Presidential Scholar nominee</strong>, selected to recognize the nation’s most distinguished graduating high school seniors. 2,600 nominees selected from 3,000,000 students (.1%).</p>
+								</div>
+							</div>
+							<div class="row dated-content">
+								<div class="col-xs-2">
+									<p class="lead date text-right">February 2015</p>
+								</div>
+								<div class="col-xs-10">
+									<p><strong>NHIAA Scholar Athlete</strong>,  selected as a High School senior who has excelled in athletics as well as academics while demonstrating outstanding school and community spirit and leadership.</p>
+								</div>
+							</div>
 						</div>
 						<div id="contact">
 							<h2>Contact</h2>
@@ -67,8 +131,8 @@
 								<strong>Ben Chaimberg</strong><br>
 								P.O. Box 18<br>
 								Etna, NH 03750<br>
-								<abbr title="Home">H:</abbr> (603) 643-5396
-								<abbr title="Cell">C:</abbr> (603) 667-8702<br>
+								<abbr title="Home">H:</abbr> (603)-643-5396
+								<abbr title="Cell">C:</abbr> (603)-667-8702<br>
 								email: <a href="mailto:benchaimberg@gmail.com">benchaimberg@gmail.com</a><br>
 								github: <a href="//github.com/Youppi3">Youppi3</a><br>
 							</address>

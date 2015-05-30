@@ -4,6 +4,26 @@ table {
   margin-top: 25px;
 }
 #footer { margin-bottom: 0 }
+.date { font-size: 18px; }
+.dated-content { margin-top: 10px; }
+.dated-content div:nth-child(2) { border-left: 1px solid #999; }
+.dated-content div:nth-child(2) h1,
+.dated-content div:nth-child(2) h2,
+.dated-content div:nth-child(2) h3,
+.dated-content div:nth-child(2) h4,
+.dated-content div:nth-child(2) h5,
+.dated-content div:nth-child(2) h6 {
+  margin-top: 0;
+}
+.back-to-top {
+  display: block;
+  padding: 4px 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
+}
 .boxed {
   margin-top: 25px;
   background-color: #337AB7;
