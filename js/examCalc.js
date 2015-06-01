@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var navbarStick = function(){
-    if (window.innerHeight > 870) {
+    if (window.innerHeight-$('#footer').height()-$('.navbar-fixed-top').height() > $('.container-fluid').height()) {
       $("#footer").addClass("navbar-fixed-bottom");
     } else {
       $("#footer").removeClass("navbar-fixed-bottom");
@@ -47,13 +47,19 @@ $(document).ready(function(){
           }
           if (inputs[i].value > 100) {
             $(inputs[i]).parent().addClass("has-error");
+            $(inputs[i]).next().addClass("glyphicon-remove");
             $(inputs[i]).parent().removeClass("has-warning");
+            $(inputs[i]).next().removeClass("glyphicon-warning-sign");
           } else if (i == 4 && inputs[i].value > Math.max(inputs[0].value,inputs[1].value)) {
             $(inputs[i]).parent().addClass("has-warning");
+            $(inputs[i]).next().addClass("glyphicon-warning-sign");
             $(inputs[i]).parent().removeClass("has-error");
+            $(inputs[i]).next().removeClass("glyphicon-remove");
           } else {
             $(inputs[i]).parent().removeClass("has-error");
+            $(inputs[i]).next().removeClass("glyphicon-remove");
             $(inputs[i]).parent().removeClass("has-warning");
+            $(inputs[i]).next().removeClass("glyphicon-warning-sign");
           }
         }
       }
