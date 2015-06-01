@@ -1,2 +1,23 @@
 body { padding-top: 50px; }
 #footer { margin-bottom: 0; }
+.navbar-right {
+  margin-right: 15px;
+}
+.boxed {
+  background-color: #337AB7;
+  color: white;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+}

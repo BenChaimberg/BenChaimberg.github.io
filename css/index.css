@@ -4,16 +4,23 @@ table {
   margin-top: 25px;
 }
 #footer { margin-bottom: 0 }
-.date { font-size: 18px; }
+.navbar-right {
+  margin-right: 15px;
+}
 .dated-content { margin-top: 10px; }
-.dated-content div:nth-child(2) { border-left: 1px solid #999; }
-.dated-content div:nth-child(2) h1,
-.dated-content div:nth-child(2) h2,
-.dated-content div:nth-child(2) h3,
-.dated-content div:nth-child(2) h4,
-.dated-content div:nth-child(2) h5,
-.dated-content div:nth-child(2) h6 {
+@media (min-width: 769px) {
+  .dated-content div:nth-last-child(1) { border-left: 1px solid #999; }
+}
+.dated-content div:nth-last-child(1) h1,
+.dated-content div:nth-last-child(1) h2,
+.dated-content div:nth-last-child(1) h3,
+.dated-content div:nth-last-child(1) h4,
+.dated-content div:nth-last-child(1) h5,
+.dated-content div:nth-last-child(1) h6 {
   margin-top: 0;
+}
+.dated-content>div>.lead {
+  margin-bottom: 10px;
 }
 .back-to-top {
   display: block;
@@ -41,17 +48,19 @@ table {
          user-select: none;
   cursor: default;
 }
-.fixed {
-  position: fixed;
+.sidebar.affix {
+  top: 25px;
 }
-.sidebar {
-  padding-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.sidebar a:hover,
+.sidebar a:focus {
+  color: #337AB7;
+  text-decoration: none;
 }
 .sidebar .nav>li>a {
   color: #999;
-  border-left: 2px solid transparent;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: transparent;
   padding: 4px 20px;
   font-size: 13px;
   font-weight: 400;
@@ -66,32 +75,27 @@ table {
 .sidebar .nav>li>a:hover,
 .sidebar .nav>li>a:focus {
   color: #337AB7;
-  text-decoration: none;
   background-color: transparent;
   border-left-color: #337AB7;
 }
-
+.sidebar .nav>li:not(.active)>a:hover,
+.sidebar .nav>li:not(.active)>a:focus {
+  border-left-width: 1px;
+  padding-left: 21px;
+}
+.sidebar .nav .nav>li>a:hover,
+.sidebar .nav .nav>li>a:focus {
+  border-left-width: 1px;
+  padding-left: 31px;
+}
 .sidebar .nav>.active>a,
 .sidebar .nav>.active:hover>a,
 .sidebar .nav>.active:focus>a {
   font-weight: 700;
+  border-left-width: 2px;
 }
-
 .sidebar .nav .nav>.active>a,
 .sidebar .nav .nav>.active:hover>a,
 .sidebar .nav .nav>.active:focus>a {
   font-weight: 500;
-}
-
-.sidebar .nav ul.nav {
-  display: none;
-}
-
-.sidebar .nav>.active>ul.nav {
-  display: block;
-}
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
 }
